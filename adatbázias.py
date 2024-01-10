@@ -10,7 +10,7 @@ def adatokbe(szó,mondat1,mondat2,mondat3,mondat4):
     adatbázis.commit()
     adat=t.execute("Select szó,mondat1 from szavmon")
     print(adat.fetchall())
-    for adatok in t.execute("Select szó,mondat1 from szavmon"):
+    for adatok in t.execute("Select szó,mondat1,mondat2,mondat3,mondat4 from szavmon"):
         print(adatok)
     adatbázis.close()
     
@@ -26,7 +26,8 @@ def adatka():
         mondat2=input("Mondat:")
         mondat3=input("Mondat:")
         mondat4=input("Mondat:")
+        adatokbe(szó,mondat1,mondat2,mondat3,mondat4)
         if szó!="":
             return adatka()
 adatka()
-adatokbe(szó,mondat1,mondat2,mondat3,mondat4)
+
