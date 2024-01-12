@@ -13,6 +13,8 @@ def adatokbe(szó,mondat1,mondat2,mondat3,mondat4):
     for adatok in t.execute("Select szó,mondat1,mondat2,mondat3,mondat4 from szavmon"):
         print(adatok)
     adatbázis.close()
+
+print("************Üdvözlöm program szó és mondat megadó részlegén!************")
     
 def adatka():
     global szó
@@ -20,12 +22,12 @@ def adatka():
     global mondat2
     global mondat3
     global mondat4
-    szó=input("szó: ")
+    szó=input("Írja be a szót: ")
     while szó!="":
-        mondat1=input("Mondat:")
-        mondat2=input("Mondat:")
-        mondat3=input("Mondat:")
-        mondat4=input("Mondat:")
+        mondat1=input("Adja meg a szóhoz tartozó mondatot:")
+        mondat2=input("Adja meg a szóhoz tartozó mondatot:")
+        mondat3=input("Adja meg a szóhoz tartozó mondatot:")
+        mondat4=input("Adja meg a szóhoz tartozó mondatot:")
         adatokbe(szó,mondat1,mondat2,mondat3,mondat4)
         if szó!="":
             return adatka()
