@@ -22,7 +22,7 @@ def adatka():
     global mondat2
     global mondat3
     global mondat4
-    szó=input("Írja be a szót: ")
+    szó=input("Írja be a szót (kilépés esetén nyomjon egy entert): ")
     while szó!="":
         mondat1=input("Adja meg a szóhoz tartozó mondatot:")
         mondat2=input("Adja meg a szóhoz tartozó mondatot:")
