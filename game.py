@@ -3,9 +3,9 @@ import random
 import hashlib
 
 
-def véletlen(datas):
+def véletlen():
     vél=random.Random()
-    return vél.randrange(len(datas))
+    return vél.randrange(7)
 
 def rekord(list,x):
     return list[x]
@@ -13,19 +13,20 @@ def rekord(list,x):
 def adat(list,x,y):
     return list[x][y]
 
+
 base=sqlite3.connect("szavak.db")
 t=base.cursor()
 adatok=t.execute("Select szó,mondat1,mondat2,mondat3,mondat4 from szavmon")
 
 datas=[list(adat) for adat in adatok]
 szám=[]
-szám.append(véletlen(datas))
-print(szám)
+szám.append(véletlen())
 #***************************************************************************
 pontok=0
 def game(szám,pontok):
     élet=4
     if adat(datas,szám[0],0)==adat(datas,szám[0],0):
+        print("***************************************************************************")
         print(adat(datas,szám[0],1))
         kiv=input("Ön melyik szóra gondol?: ")
         if kiv.lower()==adat(datas,szám[0],0).lower():
@@ -33,52 +34,52 @@ def game(szám,pontok):
             print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
             uj=input("")
             if uj.lower()=="y":
-                véletlen(datas)
+                véletlen()
                 print(szám)
                 szám.clear()
-                szám.append(véletlen(datas))
+                szám.append(véletlen())
                 game(szám,pontok)
             else:
                 print("Köszönjük a játékot!","Ennyi pontot gyűjtött:",pontok)
         else:
             print("Ez sajnos helytelen. Ennyi élete van:",élet-1,"Itt a következő mondat: ",adat(datas,szám[0],2))
-            kiv=input("Az előző szó helytelen volt. Kérem a szót!: ")
+            kiv=input("Kérem a szót!: ")
             if kiv.lower()==adat(datas,szám[0],0).lower():
                 pontok+=1
                 print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
                 uj=input("")
                 if uj.lower()=="y":
-                    véletlen(datas)
+                    véletlen()
                     szám.clear()
-                    szám.append(véletlen(datas))
+                    szám.append(véletlen())
                     game(szám,pontok)
                 else:
                     print("Köszönjük a játékot!","Ennyi pontot gyűjtött:",pontok)
             else:
                 print("Ez sajnos helytelen. Ennyi élete van:",élet-2,"Itt a következő mondat:",adat(datas,szám[0],3))
-                kiv=input("Az előző szó helytelen volt. Kérem a szót!: ")
+                kiv=input("Kérem a szót!: ")
                 if kiv.lower()==adat(datas,szám[0],0).lower():
                     pontok+=1
                     print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
                     uj=input("")
                     if uj.lower()=="y":
-                        véletlen(datas)
+                        véletlen()
                         szám.clear()
-                        szám.append(véletlen(datas))
+                        szám.append(véletlen())
                         game(szám,pontok)
                     else:
                         print("Köszönjük a játékot!","Ennyi pontot gyűjtött:",pontok)
                 else:
                     print("Ez sajnos helytelen. Ennyi élete van:",élet-3," Itt a következő mondat:",adat(datas,szám[0],4))
-                    kiv=input("Az előző szó helytelen volt. Kérem a szót!: ")
+                    kiv=input("Kérem a szót!: ")
                     if kiv.lower()==adat(datas,szám[0],0).lower():
                         pontok+=1
                         print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
                         uj=input("")
                         if uj.lower()=="y":
-                            véletlen(datas)
+                            véletlen()
                             szám.clear()
-                            szám.append(véletlen(datas))
+                            szám.append(véletlen())
                             game(szám,pontok)
                         else:
                             print("Köszönjük a játékot!","Ennyi pontot gyűjtött:",pontok)
@@ -86,9 +87,9 @@ def game(szám,pontok):
                         print("Ön sajnos vesztett! A szó nem más, mint",adat(datas,szám[0],0),"Ennyi pontot gyűjtött:",pontok,"\nSzeretne új játékot kezdeni? Y/N")
                         uj=input("")
                         if uj.lower()=="y":
-                            véletlen(datas)
+                            véletlen()
                             szám.clear()
-                            szám.append(véletlen(datas))
+                            szám.append(véletlen())
                             game(szám,pontok)
                         else:
                             print("Köszönjük a játékot!","Ennyi pontot gyűjtött:",pontok)
