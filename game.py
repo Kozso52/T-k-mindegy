@@ -21,7 +21,6 @@ adatok=t.execute("Select szó,mondat1,mondat2,mondat3,mondat4 from szavmon")
 datas=[list(adat) for adat in adatok]
 szám=[]
 szám.append(véletlen())
-print(szám)
 #***************************************************************************
 pontok=0
 def game(szám,pontok):
@@ -33,9 +32,8 @@ def game(szám,pontok):
             pontok+=1
             print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
             uj=input("")
-            if uj=="Y":
+            if uj.lower()=="y":
                 véletlen()
-                print(szám)
                 szám.clear()
                 szám.append(véletlen())
                 game(szám,pontok)
@@ -48,7 +46,7 @@ def game(szám,pontok):
                 pontok+=1
                 print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
                 uj=input("")
-                if uj=="Y":
+                if uj.lower()=="y":
                     véletlen()
                     szám.clear()
                     szám.append(véletlen())
@@ -62,7 +60,7 @@ def game(szám,pontok):
                     pontok+=1
                     print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
                     uj=input("")
-                    if uj=="Y":
+                    if uj.lower()=="y":
                         véletlen()
                         szám.clear()
                         szám.append(véletlen())
@@ -76,7 +74,7 @@ def game(szám,pontok):
                         pontok+=1
                         print("Gratulálok ez a helyes válasz! \nSzeretne új játékot kezdeni? Y/N")
                         uj=input("")
-                        if uj=="Y":
+                        if uj.lower()=="y":
                             véletlen()
                             szám.clear()
                             szám.append(véletlen())
@@ -86,7 +84,7 @@ def game(szám,pontok):
                     else:
                         print("Ön sajnos vesztett! A szó nem más, mint",adat(datas,szám[0],0),"Ennyi pontot gyűjtött:",pontok,"\nSzeretne új játékot kezdeni? Y/N")
                         uj=input("")
-                        if uj=="Y":
+                        if uj.lower()=="y":
                             véletlen()
                             szám.clear()
                             szám.append(véletlen())
