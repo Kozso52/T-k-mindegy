@@ -26,7 +26,7 @@ pontok=0
 def game(szám,pontok):
     élet=4
     if adat(datas,szám[0],0)==adat(datas,szám[0],0):
-        print(adat(datas,szám[0],1))
+        print("A segédmondat:",adat(datas,szám[0],1))
         kiv=input("Ön melyik szóra gondol?: ")
         if kiv==adat(datas,szám[0],0):
             pontok+=1
